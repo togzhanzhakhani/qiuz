@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 
-const QuestionCard = ({ question, answerOptions, handleAnswerOptionClick, selectedOptions, setSelectedOptions, answerSubmitted }) => {
+const QuestionCard = ({questionNumber, question, answerOptions, handleAnswerOptionClick, selectedOptions, setSelectedOptions, answerSubmitted }) => {
  
   const multipleAnswersAllowed = answerOptions.filter(option => option.isCorrect).length > 1;
 
@@ -32,7 +32,7 @@ const QuestionCard = ({ question, answerOptions, handleAnswerOptionClick, select
 
   return (
     <ScrollView style={styles.card}>
-      <Text style={styles.question}>{question}</Text>
+      <Text style={styles.question}>{questionNumber}. {question}</Text>
       {answerOptions.map((option, index) => (
         <Pressable
           key={index}

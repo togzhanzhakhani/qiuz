@@ -48,10 +48,8 @@ const Quiz = () => {
         </View>
       ) : (
         <>
-          <Text style={styles.counterText}>
-            {currentQuestionIndex + 1}.
-          </Text>
           <QuestionCard
+            questionNumber={currentQuestionIndex + 1} 
             question={questions[currentQuestionIndex].question}
             answerOptions={questions[currentQuestionIndex].answers}
             selectedOptions={selectedOptions}
