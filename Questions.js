@@ -922,15 +922,6 @@ const questions = [
                     ]
                 },
                 {
-                  "question": "Which technology can be implemented as part of an authentication system to verify the identification of employees?",
-                  "answers": [
-                      {"text": "a smart card reader", "isCorrect": true},
-                      {"text": "SHA-1 hash", "isCorrect": false},
-                      {"text": "a virtual fingerprint", "isCorrect": false},
-                      {"text": "a Mantrap", "isCorrect": false}
-                  ]
-              },
-                {
                     "question": "Netbus belongs to which malware type?",
                     "answers": [
                         {"text": "backdoor", "isCorrect": true},
