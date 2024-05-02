@@ -7,7 +7,7 @@ const Quiz = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOptions, setSelectedOptions] = useState([]);
   const [answerSubmitted, setAnswerSubmitted] = useState(false);
 
   const handleAnswerOptionClick = (isCorrect) => {
@@ -28,7 +28,7 @@ const Quiz = () => {
   };
 
   const resetQuestionState = () => {
-    setSelectedOption(null);
+    setSelectedOptions([]);
     setAnswerSubmitted(false);
   };
 
@@ -51,8 +51,8 @@ const Quiz = () => {
           <QuestionCard
             question={questions[currentQuestionIndex].question}
             answerOptions={questions[currentQuestionIndex].answers}
-            selectedOption={selectedOption}
-            setSelectedOption={setSelectedOption}
+            selectedOptions={selectedOptions}
+            setSelectedOptions={setSelectedOptions}
             answerSubmitted={answerSubmitted}
             handleAnswerOptionClick={handleAnswerOptionClick}
           />

@@ -21,7 +21,7 @@ const questions = [
       question: "A specialist in the HR department is invited to promote the cybersecurity program in community schools. Which three topics would the specialist emphasize in the presentation to draw students to this field? (Choose three.)",
       answers: [
         { text: "a career-field in high-demand", isCorrect: true },
-        { text: "service to the public", isCorrect: false },
+        { text: "service to the public", isCorrect: true },
         { text: "high earning potential", isCorrect: true },
         { text: "a job with routine, day-to-day tasks", isCorrect: false },
         { text: "a field requiring a PhD degree", isCorrect: false },
@@ -173,7 +173,7 @@ const questions = [
         question: "Which statement describes a characteristics of block ciphers?",
         answers: [
             { text: "Block ciphers encrypt plaintext one bit at a time to form a block.", isCorrect: false },
-            { text: "Block ciphers result in output data that is larger than the input data most of the time.", isCorrect: false },
+            { text: "Block ciphers result in output data that is larger than the input data most of the time.", isCorrect: true },
             { text: "Block ciphers result in compressed output.", isCorrect: false },
             { text: "Block ciphers are faster than stream ciphers.", isCorrect: false }
         ]
@@ -311,8 +311,8 @@ const questions = [
           question: "Being able to maintain availability during disruptive events describes which of the principles of high availability?",
           answers: [
               { text: "single point of failure", isCorrect: false },
-              { text: "system resiliency", isCorrect: false },
-              { text: "fault tolerance", isCorrect: true },
+              { text: "system resiliency", isCorrect: true },
+              { text: "fault tolerance", isCorrect: false },
               { text: "uninterruptible services", isCorrect: false }
           ]
       },
@@ -366,10 +366,10 @@ const questions = [
     {
         question: "There are many environments that require five nines, but a five nines environment may be cost prohibitive. What is one example of where the five nines environment might be cost prohibitive?",
         answers: [
-            { text: "department stores at the local mall", isCorrect: true },
+            { text: "department stores at the local mall", isCorrect: false },
             { text: "the front office of a major league sports team", isCorrect: false },
             { text: "the U.S. Department of Education", isCorrect: false },
-            { text: "the New York Stock Exchange", isCorrect: false }
+            { text: "the New York Stock Exchange", isCorrect: true }
         ]
     },
     {
@@ -411,10 +411,10 @@ const questions = [
     {
         question: "What describes the protection provided by a fence that is 1 meter in height?",
         answers: [
-            { text: "It deters casual trespassers only.", isCorrect: false },
+            { text: "It deters casual trespassers only.", isCorrect: true },
             { text: "It prevents casual trespassers because of its height.", isCorrect: false },
             { text: "The fence deters determined intruders.", isCorrect: false },
-            { text: "It offers limited delay to a determined intruder.", isCorrect: true }
+            { text: "It offers limited delay to a determined intruder.", isCorrect: false }
         ]
     },
       {
@@ -476,9 +476,9 @@ const questions = [
       {
         question: "What is an example of early warning systems that can be used to thwart cybercriminals?",
         answers: [
-          { text: "Infragard", isCorrect: true },
+          { text: "Infragard", isCorrect: false },
           { text: "ISO/IEC 27000 program", isCorrect: false },
-          { text: "Honeynet project", isCorrect: false },
+          { text: "Honeynet project", isCorrect: true },
           { text: "CVE database", isCorrect: false }
         ]
       },
@@ -512,8 +512,8 @@ const questions = [
       {
         question: "What is an impersonation attack that takes advantage of a trusted relationship between two systems?",
         answers: [
-          { text: "man-in-the-middle", isCorrect: true },
-          { text: "spoofing", isCorrect: false },
+          { text: "man-in-the-middle", isCorrect: false },
+          { text: "spoofing", isCorrect: true },
           { text: "spamming", isCorrect: false },
           { text: "sniffing", isCorrect: false }
         ]
@@ -549,7 +549,7 @@ const questions = [
             question: "A penetration testing service hired by the company has reported that a backdoor was identified on the network. What action should the organization take to find out if systems have been compromised?",
             answers: [
                 { text: "Look for policy changes in Event Viewer", isCorrect: false },
-                { text: "Scan the systems for viruses", isCorrect: true },
+                { text: "Scan the systems for viruses", isCorrect: false },
                 { text: "Look for unauthorized accounts", isCorrect: true },
                 { text: "Look for usernames that do not have passwords", isCorrect: false }
             ]
@@ -559,8 +559,8 @@ const questions = [
             answers: [
                 { text: "administrative", isCorrect: false },
                 { text: "technological", isCorrect: false },
-                { text: "logical", isCorrect: false },
-                { text: "physical", isCorrect: true }
+                { text: "logical", isCorrect: true },
+                { text: "physical", isCorrect: false }
             ]
         },
         {
@@ -575,10 +575,10 @@ const questions = [
           {
               question: "A user has a large amount of data that needs to be kept confidential. Which algorithm would best meet this requirement?",
               answers: [
-                  { text: "3DES", isCorrect: false },
+                  { text: "3DES", isCorrect: true },
                   { text: "ECC", isCorrect: false },
                   { text: "RSA", isCorrect: false },
-                  { text: "Diffie-Hellman", isCorrect: true }
+                  { text: "Diffie-Hellman", isCorrect: false }
               ]
           },
           {
@@ -593,9 +593,9 @@ const questions = [
           {
               question: "You have been asked to describe data validation to the data entry clerks in accounts receivable. Which of the following are good examples of strings, integers, and decimals?",
               answers: [
-                  { text: "800-900-4560, 4040-2020-8978-0090, 01/21/2013", isCorrect: true },
+                  { text: "800-900-4560, 4040-2020-8978-0090, 01/21/2013", isCorrect: false },
                   { text: "male, $25.25, veteran", isCorrect: false },
-                  { text: "female, 9866, $125.50", isCorrect: false },
+                  { text: "female, 9866, $125.50", isCorrect: true },
                   { text: "yes/no 345-60-8745, TRF562", isCorrect: false }
               ]
           },
@@ -859,12 +859,12 @@ const questions = [
               {
                   "question": "Which two protocols pose switching threats? (Choose two.)",
                   "answers": [
-                      {"text": "RIP", "isCorrect": true},
+                      {"text": "RIP", "isCorrect": false},
                       {"text": "IP", "isCorrect": false},
                       {"text": "ICMP", "isCorrect": false},
                       {"text": "WPA2", "isCorrect": false},
                       {"text": "STP", "isCorrect": true},
-                      {"text": "ARP", "isCorrect": false}
+                      {"text": "ARP", "isCorrect": true}
                   ]
               },
               {
@@ -922,6 +922,15 @@ const questions = [
                     ]
                 },
                 {
+                  "question": "Which technology can be implemented as part of an authentication system to verify the identification of employees?",
+                  "answers": [
+                      {"text": "a smart card reader", "isCorrect": true},
+                      {"text": "SHA-1 hash", "isCorrect": false},
+                      {"text": "a virtual fingerprint", "isCorrect": false},
+                      {"text": "a Mantrap", "isCorrect": false}
+                  ]
+              },
+                {
                     "question": "Netbus belongs to which malware type?",
                     "answers": [
                         {"text": "backdoor", "isCorrect": true},
@@ -940,6 +949,6 @@ const questions = [
                     ]
                 }
             ]           
-              
+
   export default questions;
   

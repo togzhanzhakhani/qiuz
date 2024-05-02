@@ -1,27 +1,43 @@
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 
-const QuestionCard = ({ question, answerOptions, handleAnswerOptionClick, selectedOption, setSelectedOption, answerSubmitted }) => {
+const QuestionCard = ({ question, answerOptions, handleAnswerOptionClick, selectedOptions, setSelectedOptions, answerSubmitted }) => {
  
-  const handleAnswerSelect = (option, index) => {
+  const multipleAnswersAllowed = answerOptions.filter(option => option.isCorrect).length > 1;
+
+  const handleAnswerSelect = (index) => {
     if (!answerSubmitted) {
-        setSelectedOption(index);
+      if (multipleAnswersAllowed) {
+        if (selectedOptions.includes(index)) {
+          setSelectedOptions(selectedOptions.filter(opt => opt !== index));
+        } else {
+          setSelectedOptions([...selectedOptions, index]); 
+        }
+      } else {
+        setSelectedOptions([index]);
       }
+    }
   };
+
 
  
   const handleSubmitAnswer = () => {
-    handleAnswerOptionClick(answerOptions[selectedOption].isCorrect);
-
+    if (multipleAnswersAllowed) {
+      const allCorrect = answerOptions.filter(opt => opt.isCorrect).every(opt => selectedOptions.includes(answerOptions.indexOf(opt)));
+      const noIncorrect = selectedOptions.every(index => answerOptions[index].isCorrect);
+      handleAnswerOptionClick(allCorrect && noIncorrect);
+    } else {
+      handleAnswerOptionClick(answerOptions[selectedOptions[0]].isCorrect);
+    }
   };
 
   return (
-    <View style={styles.card}>
+    <ScrollView style={styles.card}>
       <Text style={styles.question}>{question}</Text>
       {answerOptions.map((option, index) => (
         <Pressable
           key={index}
-          style={{ backgroundColor: getBackgroundColor(index, option.isCorrect, selectedOption, answerSubmitted), padding: 10, margin: 5 }}
-          onPress={() => handleAnswerSelect(option, index)}
+          style={{ backgroundColor: getBackgroundColor(index, option.isCorrect, selectedOptions, answerSubmitted), padding: 10, margin: 5 }}
+          onPress={() => handleAnswerSelect(index)}
           disabled={answerSubmitted}  
         >
           <Text style={styles.buttonText}>{option.text}</Text>
@@ -30,19 +46,19 @@ const QuestionCard = ({ question, answerOptions, handleAnswerOptionClick, select
       <Pressable
         style={styles.button}
         onPress={handleSubmitAnswer}
-        disabled={answerSubmitted || selectedOption === null}
+        disabled={answerSubmitted || selectedOptions.length === 0}
       >
         <Text style={styles.buttonText}>Submit Answer</Text>
       </Pressable>
-    </View>
+    </ScrollView>
   );
 };
 
-const getBackgroundColor = (index, isCorrect, selectedOption, answerSubmitted) => {
+const getBackgroundColor = (index, isCorrect, selectedOptions, answerSubmitted) => {
   if (!answerSubmitted) {
-    return index === selectedOption ? '#DCDCDC' : '#FFFAF0'; 
+    return selectedOptions.includes(index) ? '#DCDCDC' : '#FFFAF0'; 
   } else {
-    if (index === selectedOption) {
+    if (selectedOptions.includes(index)) {
       return isCorrect ? '#9ACD32' : '#FA8072'; 
     }
     return isCorrect ? '#9ACD32' : '#FFFAF0'; 
