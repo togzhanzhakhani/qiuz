@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import QuestionCard from './QuestionCard';
-import questions from './Questions';
+import questions1 from './Questions1';
+import questions2 from './Questions2';
 
 const Quiz = () => {
+  const [activeTab, setActiveTab] = useState(1);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [answerSubmitted, setAnswerSubmitted] = useState(false);
+  const questions = activeTab === 1 ? questions1 : activeTab === 2 ? questions2 : questions3;
+
 
   const handleAnswerOptionClick = (isCorrect) => {
     if (isCorrect) {
@@ -41,6 +45,11 @@ const Quiz = () => {
 
   return (
     <View style={styles.container}>
+      <View style={styles.tabs}>
+        <Button title="Set 1" onPress={() => setActiveTab(1)} color={activeTab === 1 ? '#BA89D5' : '#ccc'} />
+        <Button title="Set 2" onPress={() => setActiveTab(2)} color={activeTab === 2 ? '#BA89D5' : '#ccc'} />
+        <Button title="Set 3" onPress={() => setActiveTab(3)} color={activeTab === 3 ? '#BA89D5' : '#ccc'} />
+      </View>
       {showScore ? (
         <View>
           <Text>You scored {score} out of {questions.length}</Text>
@@ -48,16 +57,16 @@ const Quiz = () => {
         </View>
       ) : (
         <>
-          <QuestionCard
-            questionNumber={currentQuestionIndex + 1} 
-            question={questions[currentQuestionIndex].question}
-            answerOptions={questions[currentQuestionIndex].answers}
-            selectedOptions={selectedOptions}
-            setSelectedOptions={setSelectedOptions}
-            answerSubmitted={answerSubmitted}
-            handleAnswerOptionClick={handleAnswerOptionClick}
-          />
-          <Button title="Next Question" onPress={handleNextQuestion} disabled={!answerSubmitted} color='#BA89D5'  />
+          <Text>Question {currentQuestionIndex + 1}: {questions[currentQuestionIndex].question}</Text>
+          {questions[currentQuestionIndex].answers.map((answer, index) => (
+            <Button
+              key={index}
+              title={answer.text}
+              onPress={() => handleAnswerOptionClick(answer.isCorrect)}
+              color='#BA89D5'
+            />
+          ))}
+          <Button title="Next Question" onPress={handleNextQuestion} disabled={!answerSubmitted} color='#BA89D5' />
         </>
       )}
     </View>
@@ -71,7 +80,13 @@ const styles = StyleSheet.create({
     alignItems: 'center', 
     padding: 20, 
     backgroundColor: '#f0f0f0' 
+  },
+  
+  tabs: {
+    flexDirection: 'row',
+    marginBottom: 20,
   }
+
 });
 
 export default Quiz;
