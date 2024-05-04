@@ -57,16 +57,16 @@ const Quiz = () => {
         </View>
       ) : (
         <>
-          <Text>Question {currentQuestionIndex + 1}: {questions[currentQuestionIndex].question}</Text>
-          {questions[currentQuestionIndex].answers.map((answer, index) => (
-            <Button
-              key={index}
-              title={answer.text}
-              onPress={() => handleAnswerOptionClick(answer.isCorrect)}
-              color='#BA89D5'
-            />
-          ))}
-          <Button title="Next Question" onPress={handleNextQuestion} disabled={!answerSubmitted} color='#BA89D5' />
+          <QuestionCard
+            questionNumber={currentQuestionIndex + 1} 
+            question={questions[currentQuestionIndex].question}
+            answerOptions={questions[currentQuestionIndex].answers}
+            selectedOptions={selectedOptions}
+            setSelectedOptions={setSelectedOptions}
+            answerSubmitted={answerSubmitted}
+            handleAnswerOptionClick={handleAnswerOptionClick}
+          />
+          <Button title="Next Question" onPress={handleNextQuestion} disabled={!answerSubmitted} color='#BA89D5'  />
         </>
       )}
     </View>
@@ -81,12 +81,10 @@ const styles = StyleSheet.create({
     padding: 20, 
     backgroundColor: '#f0f0f0' 
   },
-  
   tabs: {
     flexDirection: 'row',
     marginBottom: 20,
   }
-
 });
 
 export default Quiz;
