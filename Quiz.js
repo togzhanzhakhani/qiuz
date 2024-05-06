@@ -3,6 +3,7 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 import QuestionCard from './QuestionCard';
 import questions1 from './Questions1';
 import questions2 from './Questions2';
+import questions3 from './Questions3';
 
 const Quiz = () => {
   const [activeTab, setActiveTab] = useState(1);

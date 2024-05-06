@@ -1696,7 +1696,46 @@ const questions2 = [
             { "text": "Detective controls", "isCorrect": true },
             { "text": "Corrective controls", "isCorrect": false }
         ]
-    }                     
+    },
+    {
+        "question": "What is one limitation of a stateful firewall?",
+        "answers": [
+            { "text": "not as effective with UDP- or ICMP-based traffic", "isCorrect": true },
+            { "text": "poor log information", "isCorrect": false },
+            { "text": "cannot filter unnecessary traffic", "isCorrect": false },
+            { "text": "weak user authentication", "isCorrect": false }
+        ]
+    },
+    {
+        "question": "What are two benefits of using a ZPF rather than a Classic Firewall? (Choose two.)",
+        "answers": [
+            { "text": "With ZPF, the router will allow packets unless they are explicitly blocked.", "isCorrect": false },
+            { "text": "ZPF policies are easy to read and troubleshoot.", "isCorrect": true },
+            { "text": "Multiple inspection actions are used with ZPF.", "isCorrect": false },
+            { "text": "The ZPF is not dependent on ACLs.", "isCorrect": true },
+            { "text": "ZPF allows interfaces to be placed into zones for IP inspection.", "isCorrect": false }
+        ]
+    },
+    {
+        "question": "Which algorithm is used with symmetric encryption to provide confidentiality?",
+        "answers": [
+            { "text": "RSA", "isCorrect": false },
+            { "text": "MD5", "isCorrect": false },
+            { "text": "AES", "isCorrect": true },
+            { "text": "ECC", "isCorrect": false }
+        ]
+    },
+    {
+        "question": "Which method tries all possible passwords until a match is found?",
+        "answers": [
+            { "text": "cloud", "isCorrect": false },
+            { "text": "cryptographic", "isCorrect": false },
+            { "text": "birthday", "isCorrect": false },
+            { "text": "brute force", "isCorrect": true },
+            { "text": "rainbow tables", "isCorrect": false },
+            { "text": "dictionary", "isCorrect": false }
+        ]
+    }                              
   ]           
 
 export default questions2;
